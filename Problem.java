@@ -11,8 +11,7 @@ class Solution {
         }
         while (i < str.length() && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
             if ((plusOrMinus > Integer.MAX_VALUE / 10) || 
-                    (plusOrMinus > Integer.MAX_VALUE / 10) &&
-                                (str.charAt(i) - '0' > 7)) {
+                    (plusOrMinus == Integer.MAX_VALUE / 10 && str.charAt(i) - '0' > 7)) {
                 return (plusOrMinus == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
             b = 10 * b + (str.charAt(i++) - '0');
