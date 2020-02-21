@@ -2,20 +2,17 @@
 class Solution {
     public int strStr(String haystack, String needle) {
         if(needle.isEmpty()) return 0;
+        if(haystack.length() < needle.length()) return -1;
+    
+        for (int i = 0 ; i < haystack.length(); i++) {
+            for (int j = 0 ; j < needle.length(); j++) {
+                if (j == needle.length()) return i;
+                if (i + j == haystack.length()) return -1;
                 
-        int i = 0, indexAt = 0;
-        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
-        
-        while(i < haystack.length()-1) {
-            if (haystack.charAt(i+1) == needle.charAt(i+1) 
-                    && haystack.charAt(i) == needle.charAt(i) {
-                map.put(haystack.charAt(i), i);
-                i++;
-            } else
-                i++;
+                if (needle.charAt(j) != haystack.charAt(i + j))
+                    break;
+            }
         }
-        if(needle.length() == map.size()) 
-            return map.get(0);
         
         return -1;
     }
