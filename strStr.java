@@ -4,17 +4,18 @@ class Solution {
         if(needle.isEmpty()) return 0;
                 
         int i = 0, indexAt = 0;
-        HashMap<Character, Integer> map = new HashMap<String, Integer>();
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         
         
-        while(i < haystack.length()) {
-            if (haystack.charAt(i) == needle.charAt(i)) {
+        while(i < haystack.length()-1) {
+            if (haystack.charAt(i+1) == needle.charAt(i+1) && haystack.charAt(i) == needle.charAt(i) {
                 map.put(haystack.charAt(i), i);
                 i++;
             } else
                 i++;
         }
-        if(needle.length() == map.size()) return map.get(0);
+        if(needle.length() == map.size()) 
+            return map.get(0);
         
         return -1;
     }
