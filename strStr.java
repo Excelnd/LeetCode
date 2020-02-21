@@ -2,17 +2,16 @@
 class Solution {
     public int strStr(String haystack, String needle) {
         if(needle.isEmpty()) return 0;
-        
-        HashMap<Character, Integer> map = new HashMap<>();
-        for(int i = 0; i < haystack.length(); i++) {
-            map.put(haystack.charAt(i), i + 1);
+                
+        int i = 0, indexAt = 0;
+        while(i < haystack.lengt()) {
+            if (haystack.charAt(i) == needle.charAt(i)) {
+                indexAt = i;
+                i++;
+            } else
+                i++;
         }
         
-        for(int i = 0; i < needle.length(); i++) {
-            if(map.containsKey(haystack.charAt(i) == needle.charAt(i)));
-            int indexOf = map.get(haystack.charAt(i));
-            return indexOf + 1;
-        }
         return -1;
     }
 }
