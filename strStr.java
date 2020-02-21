@@ -4,13 +4,17 @@ class Solution {
         if(needle.isEmpty()) return 0;
                 
         int i = 0, indexAt = 0;
-        while(i < haystack.lengt()) {
+        char[] stock = new char[needle.length];
+        ArrayList<String> al = new ArrayList<>();
+        
+        while(i < haystack.length()) {
             if (haystack.charAt(i) == needle.charAt(i)) {
                 indexAt = i;
-                i++;
+                al.add(charAt(i++));
             } else
                 i++;
         }
+        if(al.length == needle.length()) return
         
         return -1;
     }
