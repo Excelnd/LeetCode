@@ -14,6 +14,6 @@ class Solution {
             int indexOf = map.get(hayStack.charAt(i));
             return indexOf;
         }
-        retrun -1;
+        return -1;
     }
 }
