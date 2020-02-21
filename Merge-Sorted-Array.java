@@ -1,5 +1,5 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        ArrayList<Integer> merge = new ArrayList<Integer><
+        ArrayList<Integer> merge = new ArrayList<Integer>();
     }
 }
