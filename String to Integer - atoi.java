@@ -1,6 +1,6 @@
 class Solution {
     public static int myAtoi(String str) {
-        if (str.isEmpty()) return 0;
+        if(str==null||str.length()==0)return 0; 
         
         int plusOrMinus = 1;
         int b = 0;
