@@ -4,17 +4,17 @@ class Solution {
         if(needle.isEmpty()) return 0;
                 
         int i = 0, indexAt = 0;
-        char[] stock = new char[needle.length];
-        ArrayList<String> al = new ArrayList<>();
+        HashMap<Character, Integer> map = new HashMap<String, Integer>();
+        
         
         while(i < haystack.length()) {
             if (haystack.charAt(i) == needle.charAt(i)) {
-                indexAt = i;
-                al.add(charAt(i++));
+                map.put(haystack.charAt(i), i);
+                i++;
             } else
                 i++;
         }
-        if(al.length == needle.length()) return
+        if(needle.length() == map.size()) return map.get(0);
         
         return -1;
     }
