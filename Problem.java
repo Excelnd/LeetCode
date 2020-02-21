@@ -6,10 +6,10 @@ class Solution {
         int b = 0;
         int i = 0;
         
-        while (str.charAt(i) == ' ') {
+        while (str.charAt(i) == ' ') { 
             i++;
         }
-        if (str.charAt(i) == '-' || str.charAt(i) == '+') {
+        if (str.charAt(i) == '-' || str.charAt(i) == '+') { // if the character is Minus Or Plus
             plusOrMinus = str.charAt(i++) == '-' ? -1 : 1;
         }
         while (i < str.length() && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
