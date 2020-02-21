@@ -11,7 +11,7 @@ class Solution {
         for(int i = 0; i < needle.length(); i++) {
             if(map.containsKey(haystack.charAt(i) == needle.charAt(i)));
             int indexOf = map.get(haystack.charAt(i));
-            return indexOf;
+            return indexOf + 1;
         }
         return -1;
     }
