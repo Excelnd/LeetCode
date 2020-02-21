@@ -3,15 +3,14 @@ class Solution {
     public int strStr(String haystack, String needle) {
         if(needle.isEmpty()) return 0;
         
-        int i=0;
-        HashMap<String, Integer> map = new HashMap<>();
-        for(int i = 0 i < hayStack.length(); i++) {
-            map.put(hayStack.charAt(i), i);
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(int i = 0; i < haystack.length(); i++) {
+            map.put(haystack.charAt(i), i + 1);
         }
         
         for(int i = 0; i < needle.length(); i++) {
-            if(map.containsKey(hayStack.charAt(i) == needle.charAt(i)));
-            int indexOf = map.get(hayStack.charAt(i));
+            if(map.containsKey(haystack.charAt(i) == needle.charAt(i)));
+            int indexOf = map.get(haystack.charAt(i));
             return indexOf;
         }
         return -1;
