@@ -6,9 +6,9 @@ class Solution {
         int i = 0, indexAt = 0;
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         
-        
         while(i < haystack.length()-1) {
-            if (haystack.charAt(i+1) == needle.charAt(i+1) && haystack.charAt(i) == needle.charAt(i) {
+            if (haystack.charAt(i+1) == needle.charAt(i+1) 
+                    && haystack.charAt(i) == needle.charAt(i) {
                 map.put(haystack.charAt(i), i);
                 i++;
             } else
