@@ -1,16 +1,15 @@
 class Solution {
     public static int myAtoi(String str) {
-        if(str==null||str.length()==0)return 0;
-        str=str.trim(); // trim white spaces
-        if(str.length()==0)return 0;  
+        if(str.isEmpty()) return 0;
         
         int plusOrMinus = 1;
         int b = 0;
         int i = 0;
         
-        while (str.charAt(i) == ' ') { 
-            i++;
+        while (i < str.length() && str.charAt(i) == ' ') {
+            i++; 
         }
+        if(i == str.length()) return 0;
         if (str.charAt(i) == '-' || str.charAt(i) == '+') { // if the character is Minus Or Plus
             plusOrMinus = str.charAt(i++) == '-' ? -1 : 1; // if it is Minus then set to Minus / else set to Positive
         }
