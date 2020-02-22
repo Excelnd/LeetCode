@@ -1,26 +1,16 @@
-public class YourClassNameHere {
-    public static void main(String[] args) {
-  
-      climbStairs(3);
-    }
-    
-    public static int climbStairs(int n) {
-        int memo[] = new int[n + 1];
-        return climbing(0, n, memo);
-    }
-    
-    public static int climbing(int i, int n, int[] memo) {
-        if (i > n) 
-            return 0;
-        
-        if (i == n) 
+public class Solution {
+    public int climbStairs(int n) {
+        if (n == 1) {
             return 1;
+        }
         
-        if (memo[i] > 0) 
-            return memo[i];
+        int[] dp = new int[n+1];
+        dp[1] = 1;
+        dp[2] = 2;
         
-        memo[i] = climbing(i + 1, n, memo) + climbing(i + 2, n, memo);
+        for (int i = 3; i <= n; i++) {
+            dp[i] = dp[i-1] + dp[i-2];
+        }
         
-        return memo[i];
-    }    
+    }
 }
