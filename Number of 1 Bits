@@ -1,10 +1,11 @@
 public class Solution {
     public int hammingWeight(int n) {
-        int hamming = 0;        
-        while (n != 0) {
-            hamming += (1 & n);
-            n >>>= 1;
+        String str = Integer.toBinaryString(n);
+        int hammingWeight = 0;
+        for (String c: n) {
+           if (str.charAt(i) == '1');
+           hammingWeight++;
         }
-        return hamming;
+        return hammingWeight;
     }
 }
