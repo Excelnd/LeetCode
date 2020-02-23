@@ -3,27 +3,24 @@ class Solution {
         // dis = y - x;
         int countX = 0;
         int countY = 0;
-        int c = 1, u = 1;
-        
-        for (int i = 0; i < 32; i++) {
-            if ((x & c) != 0) {
+        int i = 0;
+        int pos = x ^ y;
+       
+        for (; i < 32; i++) {
+            if ((pos & 1) != 0) {
                 countX = i;
+                break;
             }
-            c <<= 1;
-            System.out.print(countX + " ..");
+            i++;
         }
-        
-        for (int j = 0; j < 32; j++) {
-            if ((y & u) != 0) {
-                countY = j;
+        for (; i < 32; i++) {
+            if ((pos & 1) != 0) {
+                countY = i;
+                break;
             }
-            u <<= 1;
-            System.out.print(countY);            
+            i++;
         }
-        if (countY == countX) 
-            return countY;
-        else 
-            return Math.abs(countY - countX);
-    } // 0011
-      // 0001
+    return Math.abs(countY - countX);
+    } 
+
 }
