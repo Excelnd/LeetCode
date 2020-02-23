@@ -11,6 +11,7 @@ class Solution {
                 countX = i;
                 break;
             }
+            pos >>= 1;
             i++;
         }
         for (; i < 32; i++) {
@@ -18,6 +19,7 @@ class Solution {
                 countY = i;
                 break;
             }
+            pos >>= 1;
             i++;
         }
     return Math.abs(countY - countX);
