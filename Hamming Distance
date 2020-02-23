@@ -3,18 +3,18 @@ class Solution {
         // dis = y - x;
         int countX = 0;
         int countY = 0;
-        int c = 0, u = 0;
+        int c = 1, u = 1;
         
         for (int i = 0; i < 32; i++) {
-            if ((x & c) != 0) c = i;
+            if ((x & c) != 0) countX = i;
             c <<= 1;
-            System.out.println(c);
+            System.out.print(countX + " ..");
         }
         
         for (int j = 0; j < 32; j++) {
-            if ((y & u) != 0) u = j; 
+            if ((y & u) != 0) countY = j; 
             u <<= 1;
-            System.out.println(u);            
+            System.out.print(countY);            
         }        
         return Math.abs(u - c);
     }
