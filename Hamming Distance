@@ -19,8 +19,11 @@ class Solution {
             }
             u <<= 1;
             System.out.print(countY);            
-        }        
-        return Math.abs(countY - countX);
+        }
+        if (countY == countX) 
+            return countY;
+        else 
+            return Math.abs(countY - countX);
     } // 0011
       // 0001
 }
