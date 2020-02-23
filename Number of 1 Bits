@@ -1,16 +1,13 @@
 public class Solution {
     public int hammingWeight(int n) {
-        int hamming = 1;
-        int count = 0;
+        int hamming = 0;
         
-        int i = 0;
-        while (i < 32) {
-            if ((hamming & n) != 0) {
-                count++;
+        while (n != 0) {
+            if ((1 & n) != 0 ) {
+                hamming++;
             }
-            hamming <<= 1;
-            i++;
+            n = n >>> 1;
         }
-        return count;
+        return hamming;
     }
 }
