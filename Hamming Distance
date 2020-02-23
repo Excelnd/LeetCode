@@ -6,16 +6,22 @@ class Solution {
         int c = 1, u = 1;
         
         for (int i = 0; i < 32; i++) {
-            if ((x & c) != 0) countX = i;
+            if ((x & c) != 0) {
+                countX = i;
+                break;
+            }
             c <<= 1;
             System.out.print(countX + " ..");
         }
         
         for (int j = 0; j < 32; j++) {
-            if ((y & u) != 0) countY = j; 
+            if ((y & u) != 0) {
+                countY = j;
+                break;
+            }
             u <<= 1;
             System.out.print(countY);            
         }        
-        return Math.abs(u - c);
+        return Math.abs(countY - countX);
     }
 }
