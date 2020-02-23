@@ -1,12 +1,5 @@
 public class Solution {
     public int hammingWeight(int n) {
-        String str = Integer.toBinaryString(n);
-        int hammingWeight = 0;
-        for (int i = 0 ; i < str.length(); i++) {
-           if (str.charAt(i) == '1') {
-            hammingWeight++;
-           }
-        }
-        return hammingWeight;
+        return n ? 1 + hammingWeight(n & (n - 1)) : 0;
     }
 }
