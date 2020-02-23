@@ -1,14 +1,10 @@
 public class Solution {
     public int hammingWeight(int n) {
-        int hamming = 0;
-        
+        int hamming = 0;        
         while (n != 0) {
-            if ((1 & n) != 0 ) {
-                hamming++;
-            }
-            n = n >>> 1;
+            hamming += (1 & n);
+            n >>>= 1;
         }
         return hamming;
     }
 }
- 
