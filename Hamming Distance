@@ -1,24 +1,27 @@
 class Solution {
     public int hammingDistance(int x, int y) {
        // dis = y - x;
+       // dis = y - x;
         int countX = 0;
         int countY = 0;
-        int i = 0;
+        int i = 1;
         int pos = x ^ y;
         int n = 1;
+        
+        if (pos == 1) return 1;
        
-        for (; i < 32; i++) {
+        for (; n != 0; i++) {
             if ((pos & n) != 0) {
                 countX = i;
                 n <<= 1;
                 i++;
                 System.out.println("x " + countX);                
                 break;
-            }
+            }a
                 System.out.println("n in x " + n);                   
             n <<= 1;     
         }
-        for (; i < 32; i++) {
+        for (; n != 0; i++) {
             if ((pos & n) != 0) {
                 countY = i;
                 System.out.println("y " + countY);                  
