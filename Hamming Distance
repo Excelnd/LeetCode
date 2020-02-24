@@ -9,27 +9,15 @@ class Solution {
         int n = 1;
         
         if (pos == 1) return 1;
-       
-        for (; n != 0; i++) {
-            if ((pos & n) != 0) {
-                countX = i;
-                n <<= 1;
-                i++;
-                System.out.println("x " + countX);                
-                break;
-            }a
-                System.out.println("n in x " + n);                   
-            n <<= 1;     
-        }
-        for (; n != 0; i++) {
-            if ((pos & n) != 0) {
-                countY = i;
-                System.out.println("y " + countY);                  
-                break;              
+        
+        while (pos != 0) {
+           if ((pos & n) != 0) {
+                countX++;
             }
-                System.out.println("n in y " + n);                   
-            n <<= 1;
+            pos >>= 1;
+        i++;
         }
-    return Math.abs(countX - countY);
+
+    return countX;
     }
 }
