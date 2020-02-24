@@ -1,23 +1,10 @@
 class Solution {
-    public int hammingDistance(int x, int y) {
-       // dis = y - x;
-       // dis = y - x;
-        int countX = 0;
-        int countY = 0;
-        int i = 1;
-        int pos = x ^ y;
-        int n = 1;
-        
-        if (pos == 1) return 1;
-        
-        while (pos != 0) {
-           if ((pos & n) != 0) {
-                countX++;
-            }
-            pos >>= 1;
-        i++;
+    public int hammingDistance(int x, int y) {        
+        int xor = x ^ y;
+        int count = 0;
+        for (int i = 0; i < 32; i++) {
+            count += (xor >> i) & 1 ;
         }
-
-    return countX;
+        return count;
     }
 }
