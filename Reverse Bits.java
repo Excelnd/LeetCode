@@ -16,12 +16,12 @@ public class Solution {
         int lenClearer = real.length - ch.length;
         int realPos = 0;
         
-        for (int i = lenClearer+1; i < real.length; i++) {
+        for (int i = lenClearer; i < real.length; i++) {
             real[i] = ch[realPos++];
         }
         System.out.println(real);        
         
-        for (int i = 31; i > 0; i--) {
+        for (int i = 31; i >= 0; i--) {
             // 00000010100101000001111010011100
             lastChar[r] = real[i];
             r++;
