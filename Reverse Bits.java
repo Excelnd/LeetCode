@@ -16,7 +16,7 @@ public class Solution {
         int lenClearer = real.length - ch.length;
         int realPos = 0;
         
-        for (int i = lenClearer; i < real.length; i++) {
+        for (int i = lenClearer+1; i < real.length; i++) {
             real[i] = ch[realPos++];
         }
         System.out.println(real);        
