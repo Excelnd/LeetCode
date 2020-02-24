@@ -5,21 +5,24 @@ class Solution {
         int countY = 0;
         int i = 0;
         int pos = x ^ y;
+        int n = 1;
        
         for (; i < 32; i++) {
-            if ((pos & 1) != 0) {
+            if ((pos & n) != 0) {
                 countX = i;
+                System.out.println("x " + countX);                
                 break;
             }
-            pos >>>= 1;
+            n <<= 1;
             i++;
         }
         for (; i < 32; i++) {
             if ((pos & 1) != 0) {
                 countY = i;
-                break;
+                System.out.println("y " + countY);                  
+                break;              
             }
-            pos >>>= 1;
+            n <<= 1;
             i++;
         }
     return Math.abs(countX - countY);
