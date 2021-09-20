@@ -1,4 +1,4 @@
-class Solution {
+class Solution11 {
     public static int myAtoi(String str) {
         if(str.isEmpty()) return 0;
         
@@ -20,7 +20,7 @@ class Solution {
             if (b > Integer.MAX_VALUE / 10 || (b == Integer.MAX_VALUE / 10 && str.charAt(i) - '0' > 7)) {
                 return (plusOrMinus == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
-            b = 10 * b + (str.charAt(i++) - '0'); adding each digit to the container
+            b = 10 * b + (str.charAt(i++) - '0'); // adding each digit to the container
         }
     return  b * plusOrMinus;     
     }

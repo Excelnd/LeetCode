@@ -1,4 +1,4 @@
-class Solution {
+class Solution4 {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         ArrayList<Integer> merge = new ArrayList<Integer>();
         int[] mg = new int[n + m];
