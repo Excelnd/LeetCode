@@ -1,4 +1,4 @@
-class Solution1 {
+class Solution {
 	public static String convert(String s, int numRows) {
 
 		int len = s.length();
@@ -8,7 +8,7 @@ class Solution1 {
 		int j = 0;
 		int path = 0;
 		
-		if(s.length() == 1 || s.length() == 0) return s;
+		if(s.length() == 1 || s.length() == 0 || s.length() == 2 || numRows == 1) return s;
 
 		while (path < len) {
 
@@ -17,7 +17,7 @@ class Solution1 {
 
 			while (i < numRows && (path < len)) { // "PAYPALISHIRING"
 				cArray[i][j] = s.charAt(path);
-				System.out.print(cArray[i][j]);
+				//System.out.print(cArray[i][j]);
 				path++;
 				i++;
 			}
@@ -28,13 +28,13 @@ class Solution1 {
 					i--;
 					j++;
 					cArray[i][j] = s.charAt(path);
-					System.out.print(cArray[i][j]);
+					//System.out.print(cArray[i][j]);
 					path++;
 				}
 
 			}
 		}
-		System.out.println();
+		//System.out.println();
 
 		String re = "";
 
@@ -51,11 +51,4 @@ class Solution1 {
 		return re;
 	}
 
-	public static void main(String[] args) {
-		String s = "PAYPALISHIRING";
-		int numRows = 4;
-
-		System.out.println(convert(s, numRows));
-
-	}
 }
