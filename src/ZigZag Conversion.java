@@ -1,54 +1,60 @@
 class Solution1 {
-    public static String convert(String s, int numRows) {
-        
-          int len= s.length();
-          char[][] cArray = new char[len][len];
+	public static String convert(String s, int numRows) {
 
-          int i = 0;
-          int j = 0;
-          int path = 0;
+		int len = s.length();
+		char[][] cArray = new char[len][len];
 
-          while(path < len) {
+		int i = 0;
+		int j = 0;
+		int path = 0;
+		
+		if(s.length() == 1 || s.length() == 0) return s;
 
-             if(j != 0) i++;
+		while (path < len) {
 
-             while(i < numRows) {
-                cArray[i][j] = s.charAt(k);
-                System.out.println(cArray[i][j]);
-                path++;
-                i++;
-             }
+			if (j != 0)
+				i++;
 
-             i = numRows-1;
-              
-             if(i <= numRows) {
-                while(i != 0 && (path < len)) {
-                   i--;
-                   j++;              
-                   cArray[i][j] = s.charAt(path);
-                   path++;
-                }
+			while (i < numRows && (path < len)) { // "PAYPALISHIRING"
+				cArray[i][j] = s.charAt(path);
+				System.out.print(cArray[i][j]);
+				path++;
+				i++;
+			}
+			i = numRows-1;
 
-             }
+			if (i <= numRows) {
+				while (i != 0 && (path < len)) {
+					i--;
+					j++;
+					cArray[i][j] = s.charAt(path);
+					System.out.print(cArray[i][j]);
+					path++;
+				}
 
-        }
-        String re = "";
-        
-         for (int l=0; l < len; l++) {
-            for (int m=0; m < len; m++) {
+			}
+		}
+		System.out.println();
 
-                re += cArray[l][m];
-            }
+		String re = "";
 
-        } 
-        return re;
-    }
-    
+		for (int l = 0; l < len; l++) {
+			for (int m = 0; m < len; m++) {
+
+				if(cArray[l][m] != '\u0000') {
+					re += cArray[l][m];
+				}
+				
+			}
+			
+		}
+		return re;
+	}
+
 	public static void main(String[] args) {
 		String s = "PAYPALISHIRING";
-		int numRows = 3;
-		
-		
+		int numRows = 4;
+
 		System.out.println(convert(s, numRows));
 
 	}
