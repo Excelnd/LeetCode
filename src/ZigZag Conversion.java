@@ -1,54 +1,40 @@
-class Solution {
+import java.util.ArrayList;
+import java.util.List;
+
+class Solution1 {
 	public static String convert(String s, int numRows) {
-
-		int len = s.length();
-		char[][] cArray = new char[len][len];
-
-		int i = 0;
-		int j = 0;
-		int path = 0;
 		
-		if(s.length() == 1 || s.length() == 0 || s.length() == 2 || numRows == 1) return s;
-
-		while (path < len) {
-
-			if (j != 0)
-				i++;
-
-			while (i < numRows && (path < len)) { // "PAYPALISHIRING"
-				cArray[i][j] = s.charAt(path);
-				//System.out.print(cArray[i][j]);
-				path++;
-				i++;
-			}
-			i = numRows-1;
-
-			if (i <= numRows) {
-				while (i != 0 && (path < len)) {
-					i--;
-					j++;
-					cArray[i][j] = s.charAt(path);
-					//System.out.print(cArray[i][j]);
-					path++;
-				}
-
-			}
+		if (numRows == 1) return s;
+		
+		List<StringBuilder> rows = new ArrayList<>();
+		
+		for (int i = 0; i < Math.min(numRows, s.length()); i++) {	
+			rows.add(new StringBuilder());
 		}
-		//System.out.println();
-
-		String re = "";
-
-		for (int l = 0; l < len; l++) {
-			for (int m = 0; m < len; m++) {
-
-				if(cArray[l][m] != '\u0000') {
-					re += cArray[l][m];
-				}
-				
-			}
-			
+		
+		List<String> stringRows = new ArrayList<>();
+		
+		stringRows.add("thabastian");
+		stringRows.add("jabast");
+		return s;
+		
+//		return con.toString();
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("dklfajd");
+		List<StringBuilder> rows = new ArrayList<>();
+		
+		
+		for (int i = 0; i < Math.min(3, 8); i++) {	
+			rows.add(new StringBuilder());
 		}
-		return re;
+		
+		List<String> stringRows = new ArrayList<>();
+		
+		stringRows.add("thabastian");
+		stringRows.add("jabast");
+		
 	}
 
 }
