@@ -11,11 +11,15 @@ class Solution1 {
 		for (int i = 0; i < Math.min(numRows, s.length()); i++) {	
 			rows.add(new StringBuilder());
 		}
+		int currentRow = 0;
+		boolean toBottom = false;
 		
-		List<String> stringRows = new ArrayList<>();
+		for (char c: s.toCharArray()) {
+			rows.get(currentRow).append(c);
+			if (currentRow != 0 || currentRow == numRows - 1) 
+				toBottom = !toBottom;
+		}
 		
-		stringRows.add("thabastian");
-		stringRows.add("jabast");
 		return s;
 		
 //		return con.toString();
