@@ -11,34 +11,25 @@ class Solution1 {
 		for (int i = 0; i < Math.min(numRows, s.length()); i++) {	
 			rows.add(new StringBuilder());
 		}
+		
 		int currentRow = 0;
 		boolean toBottom = false;
 		
 		for (char c: s.toCharArray()) {
 			rows.get(currentRow).append(c);
-			if (currentRow != 0 || currentRow == numRows - 1) 
+			if (currentRow == 0 || currentRow == numRows - 1) 
 				toBottom = !toBottom;
+			currentRow += toBottom ? 1 : -1;
 		}
 		
-		return s;
-		
-//		return con.toString();
+		StringBuilder ret = new StringBuilder();
+		for (StringBuilder row : rows) ret.append(row);
+		return ret.toString();
+
 	}
 	
-	public static void main(String[] args) {
-		System.out.println("dklfajd");
-		List<StringBuilder> rows = new ArrayList<>();
-		
-		
-		for (int i = 0; i < Math.min(3, 8); i++) {	
-			rows.add(new StringBuilder());
-		}
-		
-		List<String> stringRows = new ArrayList<>();
-		
-		stringRows.add("thabastian");
-		stringRows.add("jabast");
-		
+	public static void main(String[] args) {		
+		System.out.println(convert("PAYPALISHIRING", 4));
 	}
 
 }
