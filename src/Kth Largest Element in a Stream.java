@@ -28,20 +28,20 @@ class KthLargest {
 			pq.poll();
 		}
 
-		System.out.println(pq.peek());
+//		System.out.println(pq.peek());
 		return pq.peek();
 	}
 
-	public static void main(String[] args) {
-		int[] nums = { 4, 5, 8, 2 };
-		KthLargest kthLargest = new KthLargest(3, nums);
-
-		kthLargest.add(3);
-		kthLargest.add(5);
-		kthLargest.add(10);
-		kthLargest.add(9);
-		kthLargest.add(4);
-
-	}
+//	public static void main(String[] args) {
+//		int[] nums = { 4, 5, 8, 2 };
+//		KthLargest kthLargest = new KthLargest(3, nums);
+//
+//		kthLargest.add(3);
+//		kthLargest.add(5);
+//		kthLargest.add(10);
+//		kthLargest.add(9);
+//		kthLargest.add(4);
+//
+//	}
 
 }
