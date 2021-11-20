@@ -14,17 +14,26 @@ class Solution3 {
         
         for (int element: nums) {
             hmCount.put(element, hmCount.getOrDefault(element, 0) + 1);
-            
-        // init heap
+        }
+        
+        // init heap with leastFrequent elements first
         Queue<Integer> minHeap = new PriorityQueue<>(
             (v1, v2) 
             -> hmCount.get(v1) - hmCount.get(v2));
-        }
-    	
-    	
-    	
-		return nums;
         
+        // add elements to Min-Heap, and keep Top frequent elements only
+        for(int n: hmCount.keySet()) {
+        	minHeap.add(n);
+        	if(minHeap.size() > k) minHeap.poll();
+        }
+        
+        // Build Output Array
+        int[] topFrequentElements = new int[k];
+        for (int i = k-1; i >= 0 ; --i) {
+        	topFrequentElements[i] = minHeap.poll();
+        }
+
+		return topFrequentElements;
     }
     
     public static void main(String[] args) {
