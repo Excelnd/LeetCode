@@ -17,24 +17,29 @@ public class GroupAnagrams {
     	Map<String, List<String>> hashMap = new HashMap<>();
     	
     	for(String str : strs) {
-    		char[] charEachString = new char[26];
-//    		Arrays.sort(charEachString); // eat = aet, tea = aet, tan = ant, ate = aet, etc...,
-//    		String keySortedString = String.valueOf(charEachString);
-//    		
-//    		if (!hashMap.containsKey(keySortedString)) {
-//    			hashMap.put(keySortedString, new ArrayList<>());
-//    		}
-//    		hashMap.get(keySortedString).add(str);
+    		char[] markChar = new char[26];
+    		for(char c: str.toCharArray()) {
+    			markChar[c - 'a']++;
+    		}
+    		
+    		String keyMarkedString = String.valueOf(markChar);
+    		
+    		if (!hashMap.containsKey(keyMarkedString)) {
+    			hashMap.put(keyMarkedString, new ArrayList<>());
+    		}
+    		
+    		hashMap.get(keyMarkedString).add(str);
     		
         	// Input: strs = ["eat","tea","tan","ate","nat","bat"]
         	// Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
-//
     	}
 
-		return new ArrayList<>(hashMap.values());        
+		return new ArrayList<>(hashMap.values());  
     }
-        
-	public static void main(String[] args) {
-
-	}
+    
+//	public static void main(String[] args) {
+//
+//	}
+    
 }
+
