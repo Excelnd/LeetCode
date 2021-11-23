@@ -16,8 +16,8 @@ public class GroupAnagrams {
     	
     	Map<String, List<String>> hashMap = new HashMap<>();
     	
-//    	for(String str : strs) {
-//    		char[] charEachString = str.toCharArray();
+    	for(String str : strs) {
+    		char[] charEachString = new char[26];
 //    		Arrays.sort(charEachString); // eat = aet, tea = aet, tan = ant, ate = aet, etc...,
 //    		String keySortedString = String.valueOf(charEachString);
 //    		
@@ -25,14 +25,16 @@ public class GroupAnagrams {
 //    			hashMap.put(keySortedString, new ArrayList<>());
 //    		}
 //    		hashMap.get(keySortedString).add(str);
+    		
+        	// Input: strs = ["eat","tea","tan","ate","nat","bat"]
+        	// Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
 //
-//    	}
+    	}
 
 		return new ArrayList<>(hashMap.values());        
     }
         
 	public static void main(String[] args) {
-    	// Input: strs = ["eat","tea","tan","ate","nat","bat"]
-    	// Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
 	}
 }
