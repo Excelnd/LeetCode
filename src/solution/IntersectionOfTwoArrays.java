@@ -24,7 +24,7 @@ public class IntersectionOfTwoArrays {
                 hashSet.remove(n);
 	    	}
     	}
-    	
+    	 
     	int[] result = new int[intersection.size()];
         for (int i = 0; i < intersection.size(); i++) {
             result[i]=intersection.get(i);
