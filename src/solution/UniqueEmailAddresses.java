@@ -10,48 +10,28 @@ public class UniqueEmailAddresses {
 		if (emails == null)
 			return 0;
 
-		Set<String> hashSet = new HashSet<>();
+		Set<String> hashSetOfEmail = new HashSet<>();
 
 		for (String email : emails) {
 
 			StringBuilder sbEmail = new StringBuilder();
 
-			for (int i = 0; i < email.length(); i++) {
+			for (char ch : email.toCharArray()) {
 
-				char eachCharAtEmail = email.charAt(i);
-
-				switch (eachCharAtEmail) {
-
-				case '.':
+				if (ch == '.')
+					continue;
+				
+				if (ch == '+')
 					break;
-
-				case '+':
-					while (email.charAt(i) != '@') {
-						eachCharAtEmail = email.charAt(++i);
-					}
-					sbEmail.append(email.substring(i));
-					i = email.length();
+				
+				if (ch == '@')
 					break;
-
-				case '@':
-					sbEmail.append(email.substring(i));
-					i = email.length();
-					break;
-
-				default:
-					sbEmail.append(eachCharAtEmail);
-
-					/*
-					 * Input: emails =
-					 * ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com",
-					 * "testemail+david@lee.tcode.com"]
-					 */
-				}
+				sbEmail.append(ch);
 			}
-
-			hashSet.add(sbEmail.toString());
+			String filteredEmail = sbEmail.toString() + email.substring(email.indexOf('@'));
+			hashSetOfEmail.add(filteredEmail);
 		}
 
-		return hashSet.size();
+		return hashSetOfEmail.size();
 	}
 }
