@@ -7,21 +7,26 @@ public class FirstUniqueCharacterInAString {
 
 	public int firstUniqChar(String s) {
 
-		Map<Character, Integer> countInHashMap = new HashMap<Character, Integer>();
+		int frquency[] = new int[26];
 
-		// Input: s = "loveleetcode"
+		char[] ch = s.toCharArray();
 
-		for (char c : s.toCharArray()) {
-			countInHashMap.put(c, countInHashMap.getOrDefault(c, 0) + 1);
+		for (int i = 0; i < s.length(); i++) {
+			frquency[ch[i] - 'a']++;
 		}
 
 		for (int i = 0; i < s.length(); i++) {
-			if (countInHashMap.get(s.charAt(i)) == 1) {
+			if (frquency[ch[i] - 'a'] == 1) {
 				return i;
 			}
 		}
 
 		return -1;
 	}
+/*
+	public static void main(String[] args) {
 
+		new FirstUniqueCharacterInAString().firstUniqChar("loveleetcode");
+	}
+*/
 }
