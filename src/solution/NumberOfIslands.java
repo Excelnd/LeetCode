@@ -12,11 +12,14 @@ public class NumberOfIslands {
 		}
 
 		int count = 0;
+		
+		int rows = grid.length;
+		int cols = grid[0].length;
 
-		for (int i = 0; i < grid.length; i++) {
-			for (int j = 0; j < grid[0].length; j++) {
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
 				if (grid[i][j] == '1') {
-					FillWaterBFS(grid, i, j);
+					FillWaterBFS(grid, rows, cols, i, j);
 					count++;
 				}
 			}
@@ -26,45 +29,31 @@ public class NumberOfIslands {
 
 	}
 
-	// int[][] dirs = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
+	private final int[][] dirs = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
 
-	public void FillWaterBFS(char[][] grid, int x, int y) {
+	public void FillWaterBFS(char[][] grid, int rows, int cols, int i, int j) {
 
-		grid[x][y] = '0';
+		Queue<Integer> queue = new LinkedList<>();
 
-		LinkedList<Integer> queue = new LinkedList<>();
+		queue.offer(i * cols + j); // 2D array to 1D array : currRow * #cols + CurrCol
 
-		int n = grid.length;
-		int m = grid[0].length;
-
-		int cvtCode = x * m + y;
-		queue.offer(cvtCode);
+		grid[i][j] = '0';
 
 		while (!queue.isEmpty()) {
 
-			cvtCode = queue.poll();
+			int idx = queue.poll();
 
-			int i = cvtCode / m;
-			int j = cvtCode % m;
+			int row = idx / cols; // 1D array to 2D array for Row : currIndex / #cols
+			int col = idx % cols; // 1D array to 2D array for Col : currIndex % #cols
 
-			if (i > 0 && grid[i - 1][j] == '1') { // Search Upward
-				queue.offer((i - 1) * m + j);
-				grid[i - 1][j] = '0';
-			}
+			for (int[] dir : dirs) {
+				int x = dir[0] + row;
+				int y = dir[1] + col;
 
-			if (i < n - 1 && grid[i + 1][j] == '1') { // Search Downward
-				queue.offer((i + 1) * m + j);
-				grid[i + 1][j] = '0';
-			}
-
-			if (j > 0 && grid[i][j - 1] == '1') {	// Search Left
-				queue.offer(i * m + j - 1);
-				grid[i][j - 1] = '0';
-			}
-
-			if (j < m - 1 && grid[i][j + 1] == '1') {	// Search Right
-				queue.offer(i * m + j + 1);
-				grid[i][j + 1] = '0';
+				if (x > -1 && x < rows && y > -1 && y < cols && grid[x][y] == '1') {
+					grid[x][y] = '0';
+					queue.add(x * cols + y);
+				}
 			}
 
 		}
