@@ -15,7 +15,7 @@ public class MaxAreaOfIsland {
     		for (int j = 0; j < c; j++) {
     			if(grid[i][j] == 1) {
     				int area = DFScountArea(grid, i, j, r, c);
-    				maxArea = Math.max(maxArea, area);
+    				maxArea = Math.max(maxArea, area); 
     			}
     		}
     	}
