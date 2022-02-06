@@ -41,7 +41,7 @@ public class MaxAreaOfIsland {
 							int nr = r + dirRow[k];
 							int nc = c + dirCol[k];
 							if (0 <= nr && nr < grid.length && 0 <= nc && nc < grid[0].length &&
-														!alreadySeen[nr][nc] && grid[nr][nc] == 1) {
+									\!alreadySeen[nr][nc] && grid[nr][nc] == 1) {
 								stack.push(new int[] { nr, nc });
 								alreadySeen[nr][nc] = true;
 							}
