@@ -1,7 +1,6 @@
 package solution;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
 class TreeNode {
 	int val;
@@ -29,34 +28,35 @@ public class MaximumDepth_of_BinaryTree {
 		if (root == null)
 			return 0;
 
-		Queue<TreeNode> queue = new LinkedList<>();
+		Stack<TreeNode> stack = new Stack<>();
+		Stack<Integer> val = new Stack<>();
 
-		queue.add(root);
-		int count = 0;
+		int max = 0;
 
-		while (!queue.isEmpty()) {
+		stack.push(root);
+		val.push(1);
 
-			int size = queue.size();
+		while (!stack.isEmpty()) {
 
-			while (size > 0) {
-				size--;
-				TreeNode taken = queue.poll();
+			TreeNode node = stack.pop();
+			int temp = val.pop();
 
-				if (taken.left != null) {
-					queue.add(taken.left);
-				}
+			max = Math.max(max, temp);
 
-				if (taken.right != null) {
-					queue.add(taken.right);
-				}
+			if (node.left != null) {
+				stack.push(node.left);
+				val.push(temp + 1);
 
 			}
 
-			count++;
+			if (node.right != null) {
+				stack.push(node.right);
+				val.push(temp + 1);
+
+			}
 
 		}
-
-		return count;
+		return max;
 	}
 
 }
