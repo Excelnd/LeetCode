@@ -39,4 +39,5 @@ public class MergeTwoBinaryTree {
             
         }
         return root1;
+	}
 }
