@@ -1,3 +1,5 @@
+package solution;
+
 class Solution11 {
     public static int myAtoi(String str) {
         if(str.isEmpty()) return 0;

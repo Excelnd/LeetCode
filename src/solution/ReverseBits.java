@@ -1,4 +1,6 @@
-public class Solution2 {
+package solution;
+
+public class ReverseBits {
     
     public int reverseBits(int n) {
         int rBits = 0;
