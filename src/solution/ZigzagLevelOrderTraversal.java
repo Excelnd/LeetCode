@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class ZigzagLevelOrderTraversal {
-	public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 		List<List<Integer>> res = new LinkedList<>();
 
 		Queue<TreeNode> queue = new LinkedList<>();
@@ -21,14 +21,14 @@ public class ZigzagLevelOrderTraversal {
 
 		while (!queue.isEmpty()) {
 			int size = queue.size();
-			List<Integer> eachLevel = new ArrayList<>();
+			LinkedList<Integer> eachLevel = new LinkedList<>();
 
 			for (int i = 0; i < size; i++) {
 
 				TreeNode node = queue.poll();
 
 				if (zigzagFlag) {
-					eachLevel.add(0, node.val);
+					eachLevel.addFirst(node.val);
 				}
 
 				else {
@@ -48,5 +48,5 @@ public class ZigzagLevelOrderTraversal {
 		}
 
 		return res;
-	}
+    }
 }
