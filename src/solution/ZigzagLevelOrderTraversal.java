@@ -17,7 +17,7 @@ public class ZigzagLevelOrderTraversal {
 
 		queue.add(root);
 
-		boolean zigzagFlag = false;
+		int count = 0;
 
 		while (!queue.isEmpty()) {
 			int size = queue.size();
@@ -27,12 +27,12 @@ public class ZigzagLevelOrderTraversal {
 
 				TreeNode node = queue.poll();
 
-				if (zigzagFlag) {
-					eachLevel.addFirst(node.val);
+				if (count %  2 == 0) {
+					eachLevel.add(node.val);
 				}
 
 				else {
-					eachLevel.add(node.val);
+					eachLevel.addFirst(node.val);
 				}
 
 				if (node.left != null) {
@@ -44,7 +44,7 @@ public class ZigzagLevelOrderTraversal {
 				}
 			}
 			res.add(eachLevel);
-			zigzagFlag = !zigzagFlag;
+			count++;
 		}
 
 		return res;
