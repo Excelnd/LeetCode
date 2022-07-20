@@ -14,9 +14,7 @@ public class TwoSum_II {
 			int sum = numbers[leftPointer] + numbers[rightPointer];
 
 			if (target == sum) {
-				index[0] = leftPointer + 1;
-                index[1] = rightPointer + 1;
-                break;
+				return new int[] { leftPointer + 1, rightPointer + 1 };
 			}
 			if (sum >= target) {
 				rightPointer--;
