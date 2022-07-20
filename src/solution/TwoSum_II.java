@@ -19,7 +19,7 @@ public class TwoSum_II {
 			}
 			if (sum < target) {
 				leftPointer++;
-			}
+			} 
 
 		}
 		return new int[] { 0, 0 };
