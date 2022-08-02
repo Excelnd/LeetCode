@@ -2,24 +2,23 @@ package solution;
 
 public class ContainerWithMostWater {
 
-    public int maxArea(int[] height) {
-        
-        int lp = 0, rp = height.length-1;
-        int maxArea = 0;
-        
-        while (lp < rp) {
+	public int maxArea(int[] height) {
 
-            int lowLength = Math.min(height[lp], height[rp]);
-            int tempArea = lowLength * (rp - lp);
-            
-            if (height[lp] <= height[rp]) {
-                lp++;
-            } else {
-                rp--;
-            }
-            maxArea = Math.max(maxArea, tempArea);
-        }
-        return maxArea;
-    }
+		int leftPointer = 0, rightPointer = height.length - 1;
+		int maxArea = 0;
+
+		while (leftPointer < rightPointer) {
+
+			maxArea = Math.max(maxArea,
+					Math.min(height[leftPointer], height[rightPointer]) * (rightPointer - leftPointer));
+
+			if (height[leftPointer] <= height[rightPointer]) {
+				leftPointer++;
+			} else {
+				rightPointer--;
+			}
+		}
+		return maxArea;
+	}
 	
 }
